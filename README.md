@@ -1,6 +1,6 @@
 # python-build
 
-A reusable workflow for building and publishing Python package to PyPI.
+A reusable workflow for building and publishing Python packages to PyPI.
 
 ### Example usage
 

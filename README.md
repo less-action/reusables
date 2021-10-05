@@ -17,5 +17,5 @@ jobs:
     with:
       requirements_file: "setup.py"
     secrets:
-      PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+      pypi_api_token: ${{ secrets.PYPI_API_TOKEN }}
 ```

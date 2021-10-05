@@ -5,7 +5,7 @@ on:
         required: true
     inputs:
       requirements_file:
-        type: string
+        type: "string"
         required: false
         default: "setup.cfg"
 

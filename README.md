@@ -1,6 +1,6 @@
-# python-build
+# reusables
 
-### `build-and-publish`
+### `python-publish`
 
 A reusable workflow for building and publishing Python packages to PyPI.
 
@@ -15,7 +15,7 @@ on:
 
 jobs:
   build-and-publish:
-    uses: antonagestam/python-build/.github/workflows/release.yaml@main
+    uses: less-action/reusables/.github/workflows/python-publish.yaml@v1
     with:
       requirements_file: "setup.py"
     secrets:
@@ -24,7 +24,7 @@ jobs:
 
 ### `pre-commit`
 
-A reusable workflow for running [pre-commit] checks in Github Actions.
+A reusable workflow for running [pre-commit] checks.
 
 [pre-commit]: https://pre-commit.com/
 
@@ -40,7 +40,7 @@ on:
 
 jobs:
   lint:
-    uses: antonagestam/python-build/.github/workflows/pre-commit.yaml@main
+    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v1
     with:
       python-version: "3.10"
 ```

@@ -27,7 +27,7 @@ jobs:
           ${{ runner.os }}
           -pre-commit
           -${{ inputs.python-version }}
-          -${{ hashFiles(".pre-commit-config.yaml") }}
+          -${{ hashFiles('.pre-commit-config.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pre-commit-${{ inputs.python-version }}
           ${{ runner.os }}-pre-commit

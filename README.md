@@ -40,8 +40,7 @@ on:
 
 jobs:
   lint:
-    name: Static analysis
-    uses: antonagestam/python-build/.github/workflows/pre-commit.yaml@feature/pre-commit
+    uses: antonagestam/python-build/.github/workflows/pre-commit.yaml@main
     with:
       python-version: "3.10"
 ```

@@ -1,0 +1,27 @@
+on:
+  workflow_call:
+    inputs:
+      requirements_file:
+        type: "string"
+        required: false
+        default: "setup.cfg"
+
+jobs:
+  build-and-check:
+    name: Build and check package metadata
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+    - name: pip cache
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles(inputs.requirements_file) }}
+        restore-keys: ${{ runner.os }}-pip
+    - name: Install dependencies
+      run: python3 -m pip install --upgrade build twine
+    - name: Build
+      run: python3 -m build --sdist --wheel .
+    - name: Check package metadata
+      run: twine check --strict dist/*

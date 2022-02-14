@@ -44,3 +44,24 @@ jobs:
     with:
       python-version: "3.10"
 ```
+
+### `python-test-build`
+
+A reusable workflow for verifying Python package metadata.
+
+#### Example usage
+
+```yaml
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-build:
+    name: Check packaging
+    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v2
+```

@@ -26,6 +26,21 @@ jobs:
       run: python3 -m pip install --upgrade build
     - name: Build
       run: python3 -m build --sdist --wheel .
+    - name: Verify release version
+      run: |
+        pkg_info_version=$(
+          tar -xf dist/*.tar.gz --to-stdout **/PKG-INFO \
+            | grep -E '^Version' \
+            | head -n1
+        )
+        if [[ "$pkg_info_version" != "Version: ${{ github.event.release.tag_name }}" ]]; then
+          echo "💥 The version annotated in PKG-INFO of the source distribution does "
+          echo "   not match the release tag."
+          echo
+          echo "Release tag: '${{ github.event.release.tag_name }}'"
+          echo "PKG-INFO line: '$pkg_info_version'"
+          exit 1
+        fi
     - name: Publish
       uses: pypa/gh-action-pypi-publish@release/v1
       with:

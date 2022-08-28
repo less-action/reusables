@@ -5,7 +5,7 @@
 A reusable workflow for building and publishing Python packages to PyPI.
 
 - Builds package with [pypa/build].
-- Verifies release tag matches version of built package.
+- Verifies release tag matches version of built wheel.
 - Uploads package to PyPI with [pypa/gh-action-pypi-publish].
 
 [pypa/build]: https://github.com/pypa/build

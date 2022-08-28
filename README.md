@@ -22,7 +22,7 @@ on:
 
 jobs:
   build-and-publish:
-    uses: less-action/reusables/.github/workflows/python-publish.yaml@v5
+    uses: less-action/reusables/.github/workflows/python-publish.yaml@v6
     with:
       requirements_file: "setup.py"
     secrets:

@@ -29,16 +29,19 @@ jobs:
     - name: Verify release version
       run: |
         pkg_info_version=$(
-          tar -xf dist/*.tar.gz --wildcards --to-stdout '**/PKG-INFO' \
-            | grep -E '^Version' \
-            | head -n1
+        python3 <(cat << EOF
+        from pathlib import Path
+        from pkginfo import Wheel
+        wheel = Wheel(next(Path("dist").glob("*.whl")))
+        print(wheel.version)
+        EOF
         )
-        if [[ "$pkg_info_version" != "Version: ${{ github.event.release.tag_name }}" ]]; then
-          echo "💥 The version annotated in PKG-INFO of the source distribution does "
-          echo "   not match the release tag."
+        )
+        if [[ "$pkg_info_version" != "${{ github.event.release.tag_name }}" ]]; then
+          echo "💥 The version of the built wheel doesn't match the release tag."
           echo
           echo "Release tag: '${{ github.event.release.tag_name }}'"
-          echo "PKG-INFO line: '$pkg_info_version'"
+          echo "Packaged version: '$pkg_info_version'"
           exit 1
         fi
     - name: Publish

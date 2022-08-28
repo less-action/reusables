@@ -29,7 +29,7 @@ jobs:
     - name: Verify release version
       run: |
         pkg_info_version=$(
-          tar -xf dist/*.tar.gz --to-stdout **/PKG-INFO \
+          tar -xf dist/*.tar.gz --wildcards --to-stdout '**/PKG-INFO' \
             | grep -E '^Version' \
             | head -n1
         )

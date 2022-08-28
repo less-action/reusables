@@ -4,6 +4,13 @@
 
 A reusable workflow for building and publishing Python packages to PyPI.
 
+- Builds package with [pypa/build].
+- Verifies release tag matches version of built wheel.
+- Uploads package to PyPI with [pypa/gh-action-pypi-publish].
+
+[pypa/build]: https://github.com/pypa/build
+[pypa/gh-action-pypi-publish]: https://github.com/pypa/gh-action-pypi-publish
+
 #### Example usage
 
 ```yaml
@@ -15,7 +22,7 @@ on:
 
 jobs:
   build-and-publish:
-    uses: less-action/reusables/.github/workflows/python-publish.yaml@v1
+    uses: less-action/reusables/.github/workflows/python-publish.yaml@v5
     with:
       requirements_file: "setup.py"
     secrets:

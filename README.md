@@ -47,7 +47,7 @@ on:
 
 jobs:
   lint:
-    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v1
+    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v6
     with:
       python-version: "3.10"
 ```
@@ -70,5 +70,5 @@ on:
 jobs:
   check-build:
     name: Check packaging
-    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v2
+    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v6
 ```

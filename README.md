@@ -22,7 +22,7 @@ on:
 
 jobs:
   build-and-publish:
-    uses: less-action/reusables/.github/workflows/python-publish.yaml@v6
+    uses: less-action/reusables/.github/workflows/python-publish.yaml@v7
     with:
       requirements_file: "setup.py"
     secrets:
@@ -47,7 +47,7 @@ on:
 
 jobs:
   lint:
-    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v6
+    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v7
     with:
       python-version: "3.10"
 ```
@@ -70,5 +70,5 @@ on:
 jobs:
   check-build:
     name: Check packaging
-    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v6
+    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v7
 ```

@@ -49,7 +49,7 @@ jobs:
   lint:
     uses: less-action/reusables/.github/workflows/pre-commit.yaml@v7
     with:
-      python-version: "3.10"
+      python-version: "3.11"
 ```
 
 ### `python-test-build`

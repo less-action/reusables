@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       # permission required for trusted publishing
-      id-token: write  
+      id-token: write
     steps:
     - uses: actions/checkout@v4
     - run: git fetch --tags

@@ -4,11 +4,11 @@ on:
       requirements_file:
         type: "string"
         required: false
-        default: "setup.cfg"
+        default: "pyproject.toml"
       python-version:
         type: "string"
         required: false
-        default: "3.11"
+        default: "3.12"
 
 jobs:
   build-and-check:
@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: git fetch --tags
     - uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python-version }}

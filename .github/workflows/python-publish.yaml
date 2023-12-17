@@ -16,7 +16,6 @@ on:
       environment_url:
         type: "string"
         required: true
-        
 
 jobs:
   build-and-publish:

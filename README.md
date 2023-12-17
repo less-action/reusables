@@ -25,6 +25,7 @@ jobs:
     uses: less-action/reusables/.github/workflows/python-publish.yaml@v11
     with:
       requirements_file: "pyproject.toml"
+      environment_url: https://pypi.org/p/<your-pypi-project-name>
 ```
 
 ### `pre-commit`

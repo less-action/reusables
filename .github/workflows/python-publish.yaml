@@ -9,6 +9,14 @@ on:
         type: "string"
         required: false
         default: "3.12"
+      environmnent_name:
+        type: "string"
+        required: false
+        default: "pypi"
+      environment_url:
+        type: "string"
+        required: true
+        
 
 jobs:
   build-and-publish:
@@ -17,6 +25,9 @@ jobs:
     permissions:
       # permission required for trusted publishing
       id-token: write
+    environment:
+      name: ${{ inputs.environmnent_name }}
+      url: ${{ inputs.environment_url }}
     steps:
     - uses: actions/checkout@v4
     - run: git fetch --tags

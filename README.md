@@ -22,11 +22,9 @@ on:
 
 jobs:
   build-and-publish:
-    uses: less-action/reusables/.github/workflows/python-publish.yaml@v9
+    uses: less-action/reusables/.github/workflows/python-publish.yaml@v11
     with:
-      requirements_file: "setup.py"
-    secrets:
-      pypi_api_token: ${{ secrets.PYPI_API_TOKEN }}
+      requirements_file: "pyproject.toml"
 ```
 
 ### `pre-commit`
@@ -47,9 +45,9 @@ on:
 
 jobs:
   lint:
-    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v9
+    uses: less-action/reusables/.github/workflows/pre-commit.yaml@v11
     with:
-      python-version: "3.11"
+      python-version: "3.12"
 ```
 
 ### `python-test-build`
@@ -70,5 +68,5 @@ on:
 jobs:
   check-build:
     name: Check packaging
-    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v9
+    uses: less-action/reusables/.github/workflows/python-test-build.yaml@v11
 ```

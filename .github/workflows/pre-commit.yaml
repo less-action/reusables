@@ -19,7 +19,7 @@ jobs:
         cache-dependency-path: .pre-commit-config.yaml
         check-latest: true
     - name: pre-commit cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pre-commit
         key: >-
